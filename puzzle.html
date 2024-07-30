@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: url('bc.png') no-repeat center center fixed;
+            background-size: cover;
+            padding-top: 100px;
+        }
+
+        header {
+            background: rgba(21, 12, 100, 0.8);
+            width: 100%;
+            text-align: center;
+            padding: 1rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .profile {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+        }
+
+        .profile img {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        }
+
+        .game-container {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+            gap: 10px;
+            background-color: rgba(255, 255, 255, 0.1);;
+            margin: 80px auto 0; /* Adjust margin for header spacing and centering */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.6);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            transition: transform 0.3s;
+            transform-style: preserve-3d;
+        }
+
+        .card.flipped {
+            background-color: #fff;
+            color: #3498db;
+        }
+
+        .card img {
+            display: none;
+        }
+
+        .card.flipped img {
+            display: block;
+        }
+
+        .message {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            text-align: center;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .game-over {
+            display: block;
+        }
+
+        footer {
+            background: rgba(21, 12, 100, 0.8);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: auto;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Give some work to your brain and win this memory game for secret message</h1>
+        <div class="profile">
+            <img src="profile.jpg" alt="Profile Avatar">
+        </div>
+    </header>
+    <div class="game-container" id="game-container">
+        <!-- Cards will be dynamically added here -->
+    </div>
+    <div class="message" id="message">You proved that you have brain, But still i will say you dont have brain, Happy Birthday Brainless Mandaaaa!!!!! 
+        Go Back to the main page!!!!
+    </div>
+    <footer>
+         <p>&copy; 2024 Happy 25th Birthday. All rights reserved with me😝.</p>
+    </footer>
+
+    <script>
+        const SIZE = 4; // Size of the grid
+        let firstCard, secondCard;
+        let lockBoard = false;
+        let matchedPairs = 0;
+        const totalPairs = (SIZE * SIZE) / 2;
+
+        function createBoard() {
+            const gameContainer = document.getElementById('game-container');
+            let cardValues = [...Array(totalPairs).keys(), ...Array(totalPairs).keys()]; // [0,0,1,1,...,totalPairs-1,totalPairs-1]
+            cardValues = cardValues.sort(() => Math.random() - 0.5); // Shuffle
+
+            cardValues.forEach(value => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.dataset.value = value;
+                
+                const front = document.createElement('img');
+                front.src = `${value}.png`; // Update with actual image paths
+                card.appendChild(front);
+                
+                card.addEventListener('click', () => flipCard(card));
+                gameContainer.appendChild(card);
+            });
+        }
+
+        function flipCard(card) {
+            if (lockBoard || card === firstCard || card.classList.contains('flipped')) return;
+
+            card.classList.add('flipped');
+            if (!firstCard) {
+                firstCard = card;
+            } else {
+                secondCard = card;
+                checkMatch();
+            }
+        }
+
+        function checkMatch() {
+            if (firstCard.dataset.value === secondCard.dataset.value) {
+                matchedPairs++;
+                resetBoard();
+                if (matchedPairs === totalPairs) {
+                    document.getElementById('message').style.display = 'flex';
+                }
+            } else {
+                lockBoard = true;
+                setTimeout(() => {
+                    firstCard.classList.remove('flipped');
+                    secondCard.classList.remove('flipped');
+                    resetBoard();
+                }, 1000);
+            }
+        }
+
+        function resetBoard() {
+            [firstCard, secondCard] = [null, null];
+            lockBoard = false;
+        }
+
+        document.addEventListener('DOMContentLoaded', createBoard);
+    </script>
+</body>
+</html>

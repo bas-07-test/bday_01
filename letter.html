@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <!-- Font Awesome for home icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&display=swap');
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('bc.png') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header {
+            background: rgba(21, 12, 100, 0.8);
+            width: 100%;
+            text-align: center;
+            padding: 1rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .profile {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+        }
+
+        .profile img {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        }
+
+        .home-icon {
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+        }
+
+        .home-icon i {
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .home-icon i:hover {
+            color: #ddd;
+        }
+
+        .letter-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border: 2px solid #aaa;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            max-width: 800px;
+            line-height: 1.8;
+            font-size: 1.2rem;
+            position: relative;
+            margin-top: 120px; /* Adjusted to ensure space from header */
+            margin-bottom: 20px; /* Space between letter and footer */
+            font-family: 'Georgia', serif;
+        }
+
+        .letter-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: #555;
+        }
+
+        .letter-body {
+            margin-bottom: 2rem;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .letter-stanza {
+            margin-bottom: 1.5rem;
+        }
+
+        .letter-signature {
+            text-align: right;
+            margin-top: 2rem;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+        }
+
+        .decorative-divider {
+            width: 80%;
+            height: 1px;
+            background-color: #bbb;
+            margin: 2rem auto;
+        }
+
+        .decorative-border {
+            position: absolute;
+            top: -1rem;
+            left: -1rem;
+            right: -1rem;
+            bottom: -1rem;
+            border: 2px solid #555;
+            pointer-events: none;
+        }
+
+        footer {
+            background: rgba(21, 12, 100, 0.8);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: auto;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .home-icon {
+                font-size: 1.2rem;
+            }
+
+            .letter-container {
+                width: 80%;
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            .profile img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .home-icon {
+                font-size: 1rem;
+            }
+
+            .letter-container {
+                width: 90%;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="home-icon">
+            <i class="fas fa-home"></i>
+        </a>
+        <h1>Small gift from me !!!</h1>
+        <div class="profile">
+            <img src="profile.jpg" alt="Profile Avatar">
+        </div>
+    </header>
+    <div class="letter-container">
+        <div class="decorative-border"></div>
+        <div class="letter-header">
+            A Poetic Tribute
+        </div>
+        <div class="letter-body">
+            <div class="letter-stanza">
+                Oh My girl, Oh my dear lady<br>
+                What I did and what Will i do<br>
+                What went good or what wish got fulfilled <br>
+                Which mosque I went and what did i pray
+            </div>
+            <div class="letter-stanza">
+                Oh My girl, oh my dear lady<br>
+                What distance did to me or what distance made me feel<br>
+                What is blushing to me and who made me to blush more<br>
+                Why my camera captured me more and what my camera want to capture more
+            </div>
+            <div class="letter-stanza">
+                Oh My girl, Oh my dear lady<br>
+                What made me think like a hero and who made me like a hero<br>
+                What i scared of more and why I dont want to leave<br>
+                What made me to think more and what made me love more
+            </div>
+            <div class="letter-stanza">
+                Oh My girl, Oh my dear lady<br>
+                So many what and So many why<br>
+                few more where, less more who<br>
+                All I think about is you and All answers are pointing it to you
+            </div>
+            <div class="letter-stanza">
+                Oh My girl, Oh my dear lady<br>
+                I wish you full of love and full of happiness <br>
+                Oh My girl, Oh my dear lady<br>
+                I love you always with heart full of you.
+            </div>
+        </div>
+        <div class="letter-signature">
+            Yours poetically,<br>
+            Chotu 👻
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Happy 25th Birthday. All rights reserved with me😝.</p>
+    </footer>
+</body>
+</html>

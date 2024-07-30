@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('bc.png') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+     
+        }
+
+        header {
+            background: rgba(21, 12, 100, 0.8);
+            width: 100%;
+            text-align: center;
+            padding: 1rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            color: white;
+            font-size: 2rem;
+        }
+        .home-icon {
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+        }
+
+        .home-icon i {
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .home-icon i:hover {
+            color: #ddd;
+        }
+
+        .profile {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+        }
+
+        .profile img {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-areas: 
+                "box1 box1 box2"
+                "box3 box4 box2"
+                "box3 box4 box5"
+                "box6 box6 box5";
+            gap: 1rem;
+            padding: 2rem;
+            margin-top: 80px; /* To make space for the fixed header */
+            flex-grow: 1;
+            box-sizing: border-box;
+        }
+
+        .box {
+            background: rgba(176, 76, 166, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .box img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .box .message {
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.1rem;
+            position: absolute;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.7);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* Custom grid areas for the boxes to create a creative layout */
+        .box:nth-child(1) {
+            grid-area: box1;
+            height: 300px;
+        }
+
+        .box:nth-child(2) {
+            grid-area: box2;
+            height: 500px;
+        }
+
+        .box:nth-child(3) {
+            grid-area: box3;
+            height: 400px;
+        }
+
+        .box:nth-child(4) {
+            grid-area: box4;
+            height: 400px;
+        }
+
+        .box:nth-child(5) {
+            grid-area: box5;
+            height: 500px;
+        }
+
+        .box:nth-child(6) {
+            grid-area: box6;
+            height: 300px;
+        }
+
+        footer {
+            background: rgba(21, 12, 100, 0.8);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: auto;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                grid-template-areas: 
+                    "box1 box1"
+                    "box2 box2"
+                    "box3 box3"
+                    "box4 box5"
+                    "box6 box6";
+            }
+
+            .box {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            .container {
+                grid-template-areas: 
+                    "box1"
+                    "box2"
+                    "box3"
+                    "box4"
+                    "box5"
+                    "box6";
+                padding: 1rem;
+            }
+
+            .box {
+                height: 100px;
+                width: 250px;
+            }
+            .box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+            .profile img {
+                width: 30px;
+                height: 30px;
+            }
+            .home-icon {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="home-icon">
+            <i class="fas fa-home"></i>
+        </a>
+        <h1>Happy Birthday My Dear Manda 👻</h1>
+        <div class="profile">
+            <img src="profile.jpg" alt="Profile Avatar">
+        </div>
+    </header>
+    <div class="container">
+        <div class="box" onclick="openInNewTab('youtube.html')" style="height: 500px;">
+            <img src="bday3.jpg" alt="Image 1" style="height: 500px;">
+            <div class="message"><strong>Happy Birthday Korangae 🙈!</strong></div>
+        </div>
+        <div class="box" onclick="openInNewTab('letter.html')" style="height: 700px;">
+            <img src="poem.jpg" alt="Image 2" style="height: 700px;">
+            <div class="message"><strong>Small gift from me!!!</strong> </div>
+        </div>
+        <div class="box" onclick="openInNewTab('memories.html')">
+            <img src="chat2.jpg" alt="Image 3">
+            <div class="message"><strong>Our Small texting memories</strong> </div>
+        </div>
+        <div class="box" onclick="openInNewTab('puzzle.html')">
+            <img src="brain5.jpg" alt="Image 4">
+            <div class="message"><strong>Giving some work to your brain</strong></div>
+        </div>
+        <div class="box" onclick="openInNewTab('cake.html')" style="height: 700px;">
+            <img src="call1.jpg" alt="Image 5"  style="height: 700px;">
+            <div class="message"><strong>Something special</strong> </div>
+        </div>
+        <div class="box" onclick="openInNewTab('wishes.html')" style="height: 500px;">
+            <img src="wish3.jpg" alt="Image 6">
+            <div class="message"><strong>Surprise Wishes!</strong> </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Happy 25th Birthday. All rights reserved with me😝.</p>
+    </footer>
+</body>
+<script>
+    // Function to open a new tab with the given URL
+    function openInNewTab(url) {
+        window.open(url, '_blank');
+    }
+</script>
+</html>

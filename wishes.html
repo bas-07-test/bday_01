@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <!-- Font Awesome for home icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('bc.png') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(21, 12, 100, 0.8);
+            width: 100%;
+            text-align: center;
+            padding: 1rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            color: white;
+            font-size: 2rem;
+        }
+
+        .profile {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+        }
+
+        .profile img {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        }
+
+        .home-icon {
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            font-size: 1.5rem;
+            color: white;
+            text-decoration: none;
+        }
+
+        .home-icon i {
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .home-icon i:hover {
+            color: #ddd;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            padding: 2rem;
+            margin-top: 80px; /* To make space for the fixed header */
+            flex-grow: 1;
+            box-sizing: border-box;
+            grid-template-rows: repeat(2, auto); /* Ensure rows fill the height */
+            height: calc(100vh - 160px); /* Adjust height to fit the viewport minus header and footer */
+            overflow: scroll ;
+            overflow-x: hidden; /* Prevent overflow issues */
+        }
+
+        .card {
+            position: relative;
+            width: 100%;
+            height: 400px; /* Ensure the card takes full container height */
+            perspective: 1000px; /* Add perspective to parent container */
+            overflow: hidden; /* Prevent overflow */
+            box-shadow: 0 4px 8px rgba(179, 155, 155, 0.3);
+        }
+
+        .card-inner {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d; /* Enable 3D transformations */
+            cursor: pointer;
+            transform-origin: center;
+            box-shadow: 0 4px 8px rgba(179, 155, 155, 0.3);
+        }
+
+        .card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front,
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden; /* Hide back side when facing away */
+        }
+
+        .card-front {
+            background: rgba(176, 76, 166, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .card-front img {
+            width: 100%;
+            height: 100%; /* Adjust height to fill the card */
+            object-fit: cover;
+        }
+
+        .card-back {
+            background: rgba(21, 12, 100, 0.8);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: rotateY(180deg);
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.2rem;
+            box-sizing: border-box;
+            box-shadow: 0 4px 8px rgba(179, 155, 155, 0.3);
+            border-radius: 10px;
+        }
+
+        footer {
+            background: rgba(21, 12, 100, 0.8);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: auto;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.5rem;
+            }
+
+            .home-icon {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.2rem;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, auto);
+                padding: 1rem;
+            }
+
+            .card {
+                height: 200px; /* Adjust height for small screens */
+            }
+
+            .profile img {
+                width: 30px;
+                height: 30px;
+            }
+
+            .home-icon {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="home-icon">
+            <i class="fas fa-home"></i>
+        </a>
+        <h1>Some Secret wishes are waiting for you</h1>
+        <div class="profile">
+            <img src="profile.jpg" alt="Profile Avatar">
+        </div>
+    </header>
+    <div class="container">
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="sisters.jpg" alt="Image 2">
+                </div>
+                <div class="card-back">
+                    <div> She is very close to you, You want to know her secrets. You care for her so much. You will support her for anything even for asking permission to the warden. This person loves you so much and cares for you always. if you want a secret message from her type sis_secret to my whatsapp chat!
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="friends.jpg" alt="Image 3">
+                </div>
+                <div class="card-back">
+                    <div>She is super special to you. you cannot hide anything from her. You always endup telling everything to her. she is super matured. she advices you nicely. You always want to meet her. She got enough hugs from you. she have nice message to tell you . if you want to hear her message type frnd_secret to my whatsapp chat!</div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="love.jpg" alt="Image 4">
+                </div>
+                <div class="card-back" >
+                    <div>This person became super special for you recently but not very recently. You like him so much. you want to share everything with him. you will get possessive for this guy. you will get angry so many times on this guy. this guy is lazy, little crack, little short tempered and little caring also. This guy always love you and have a super message for you. if you want to see that,  type chotu_secret to my whatsapp chat!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Happy 25th Birthday. All rights reserved with me😝.</p>
+    </footer>
+</body>
+</html>
